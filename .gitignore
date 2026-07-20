@@ -1,0 +1,58 @@
+## Cấu hình cơ bản cho Visual Studio và WPF / C# ##
+
+# Thư mục biên dịch và file tạm
+bin/
+obj/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+
+# Thư mục cấu hình cá nhân của Visual Studio
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+
+# Packages (NuGet)
+*.nupkg
+packages/
+!packages/build/
+*.nuget.props
+*.nuget.targets
+
+# File log và cache
+*.log
+*.cache
+*.lock.json
+*.ide
+
+# Kết quả Test
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# ReSharper / JetBrains
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# Mac / Linux (Nếu có người dùng hệ điều hành khác mở project)
+.DS_Store
+.AppleDouble
+.LSOverride
+*.swp
+*~
+
+# Thư mục Publish
+[Pp]ublish/
+*.[Pp]ublish.xml
+
+# Các file khác
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.dbmdl
+*.jfm
+*.pvc
