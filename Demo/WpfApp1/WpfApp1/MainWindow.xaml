@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Factory Material Manager" Height="380" Width="430" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Factory Material Manager" Height="430" Width="430" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Margin="32">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -20,8 +20,9 @@
             <TextBox x:Name="UserNameTextBox" Height="34" Margin="0,5,0,14"/>
             <TextBlock Text="Mật khẩu:"/>
             <PasswordBox x:Name="PasswordBox" Height="34" Margin="0,5,0,8"/>
+            <CheckBox x:Name="RememberMeCheckBox" Content="Ghi nhớ đăng nhập" Margin="0,0,0,14"/>
             <TextBlock x:Name="ErrorTextBlock" Foreground="Crimson" MinHeight="22"/>
-            <Button Content="Đăng nhập" Width="100" Height="38" HorizontalAlignment="Center" Click="LoginButton_Click"/>
+            <Button Content="Đăng nhập" Width="100" Height="38" HorizontalAlignment="Center" Click="LoginButton_Click" IsDefault="True"/>
         </StackPanel>
     </Grid>
 </Window>
