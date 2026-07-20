@@ -20,5 +20,27 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            ErrorTextBlock.Text = string.Empty;
+            string user = UserNameTextBox.Text.Trim();
+            string password = PasswordBox.Password;
+
+            if (string.IsNullOrWhiteSpace(user))
+            {
+                ErrorTextBlock.Text = "Tài khoản không được để trống.";
+                UserNameTextBox.Focus();
+                return;
+            }
+            if (password.Length < 4)
+            {
+                ErrorTextBlock.Text = "Mật khẩu phải có ít nhất 4 ký tự.";
+                PasswordBox.Focus();
+                return;
+            }
+            MessageBox.Show($"Đăng nhập thành công: {user}");
+
+        }
     }
 }
