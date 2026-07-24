@@ -1,0 +1,100 @@
+﻿<Page x:Class="WpfApp1.UniformGrid"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="UniformGrid">
+
+    <Grid Margin="20" Background="#F4F6F9">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Tiêu đề Dashboard -->
+            <RowDefinition Height="Auto"/>
+            <!-- 4 Cards thông số -->
+            <RowDefinition Height="*"/>
+            <!-- Phần nội dung khác (DataGrid, Chart...) -->
+        </Grid.RowDefinitions>
+
+        <!-- TIÊU ĐỀ -->
+        <TextBlock Grid.Row="0" Text="TỔNG QUAN HỆ THỐNG" 
+               FontSize="20" FontWeight="Bold" Foreground="#333333" Margin="0,0,0,15"/>
+
+        <!-- DockPanel giúp đẩy Tìm kiếm sang phải, nút thao tác sang trái -->
+        <DockPanel Background="#F0F0F0" Grid.Row="1" LastChildFill="False">
+            <!-- Nút nằm sát góc TRÁI -->
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Left">
+                <Button Content="Thêm mới" Margin="2"/>
+                <Button Content="Xóa" Margin="2"/>
+                <Button Content="Xuất Excel" Margin="2"/>
+            </StackPanel>
+
+            <!-- Ô Tìm kiếm nằm sát góc PHẢI -->
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
+                <TextBox Width="150" Height="25" VerticalContentAlignment="Center" Margin="2"/>
+                <Button Content="Tìm kiếm" Margin="2"/>
+            </StackPanel>
+
+            <!-- Khoảng giữa tự động trống hoặc lấp đầy -->
+        </DockPanel>
+
+        <!-- DASHBOARD 4 CARDS DÙNG UNIFORMGRID -->
+        <UniformGrid Grid.Row="2" Columns="2" Margin="-5">
+            <!-- Margin âm ở UniformGrid kết hợp Margin ở Border giúp tạo khoảng cách (Spacing) chuẩn giữa các Card -->
+
+            <!-- CARD 1: Doanh thu -->
+            <Border Margin="5" Background="White" CornerRadius="8" Padding="15">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="10" Color="Black" Opacity="0.05" ShadowDepth="2"/>
+                </Border.Effect>
+                <StackPanel>
+                    <TextBlock Text="Tổng doanh thu" Foreground="#888888" FontSize="13" FontWeight="SemiBold"/>
+                    <TextBlock Text="128.500.000 ₫" Foreground="#2ECC71" FontSize="22" FontWeight="Bold" Margin="0,8,0,0"/>
+                    <TextBlock Text="+12% so với tháng trước" Foreground="#2ECC71" FontSize="11" Margin="0,5,0,0"/>
+                </StackPanel>
+            </Border>
+
+            <!-- CARD 2: Đơn hàng -->
+            <Border Margin="5" Background="White" CornerRadius="8" Padding="15">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="10" Color="Black" Opacity="0.05" ShadowDepth="2"/>
+                </Border.Effect>
+                <StackPanel>
+                    <TextBlock Text="Đơn hàng mới" Foreground="#888888" FontSize="13" FontWeight="SemiBold"/>
+                    <TextBlock Text="1,250" Foreground="#3498DB" FontSize="22" FontWeight="Bold" Margin="0,8,0,0"/>
+                    <TextBlock Text="+5% hôm nay" Foreground="#3498DB" FontSize="11" Margin="0,5,0,0"/>
+                </StackPanel>
+            </Border>
+
+            <!-- CARD 3: Khách hàng -->
+            <Border Margin="5" Background="White" CornerRadius="8" Padding="15">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="10" Color="Black" Opacity="0.05" ShadowDepth="2"/>
+                </Border.Effect>
+                <StackPanel>
+                    <TextBlock Text="Khách hàng mới" Foreground="#888888" FontSize="13" FontWeight="SemiBold"/>
+                    <TextBlock Text="342" Foreground="#9B59B6" FontSize="22" FontWeight="Bold" Margin="0,8,0,0"/>
+                    <TextBlock Text="+18% tuần này" Foreground="#9B59B6" FontSize="11" Margin="0,5,0,0"/>
+                </StackPanel>
+            </Border>
+
+            <!-- CARD 4: Tỷ lệ chuyển đổi -->
+            <Border Margin="5" Background="White" CornerRadius="8" Padding="15">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="10" Color="Black" Opacity="0.05" ShadowDepth="2"/>
+                </Border.Effect>
+                <StackPanel>
+                    <TextBlock Text="Tỷ lệ hủy đơn" Foreground="#888888" FontSize="13" FontWeight="SemiBold"/>
+                    <TextBlock Text="1.2%" Foreground="#E74C3C" FontSize="22" FontWeight="Bold" Margin="0,8,0,0"/>
+                    <TextBlock Text="-0.5% so với tuần trước" Foreground="#E74C3C" FontSize="11" Margin="0,5,0,0"/>
+                </StackPanel>
+            </Border>
+
+        </UniformGrid>
+
+        <!-- NỘI DUNG PHÍA DƯỚI (Nếu có) -->
+        <!-- <DataGrid Grid.Row="2" ... /> -->
+    </Grid>
+</Page>

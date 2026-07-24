@@ -41,6 +41,15 @@ namespace WpfApp1
             }
             MessageBox.Show($"Đăng nhập thành công: {user}");
 
+            var navWindow = new System.Windows.Navigation.NavigationWindow
+            {
+                Title = "Cửa sổ mới",
+                Content = new FilterPage(), // Gán Page vào Content
+                Width = 600,
+                Height = 400
+            };
+
+            navWindow.Show(); // Hoặc navWindow.ShowDialog();
         }
     }
 }
