@@ -1,0 +1,27 @@
+<Project>
+
+    <PropertyGroup>
+
+        <ManagePackageVersionsCentrally>
+            true
+        </ManagePackageVersionsCentrally>
+
+    </PropertyGroup>
+
+    <ItemGroup>
+
+        <!-- MVVM -->
+
+        <PackageVersion
+            Include="CommunityToolkit.Mvvm"
+            Version="8.4.2" />
+
+        <!-- Host / DI / Configuration -->
+
+        <PackageVersion
+            Include="Microsoft.Extensions.Hosting"
+            Version="10.0.12" />
+
+    </ItemGroup>
+
+</Project>

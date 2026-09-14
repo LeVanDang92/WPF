@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="WarehouseManager.Presentation.Wpf.Views.DashboardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WarehouseManager.Presentation.Wpf.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Margin="24">
+
+        <StackPanel>
+
+            <TextBlock
+                Text="Dashboard"
+                FontSize="28"
+                FontWeight="SemiBold"/>
+
+            <TextBlock
+                Margin="0,8,0,0"
+                Text="Tổng quan hệ thống quản lý kho."
+                FontSize="14"/>
+
+        </StackPanel>
+
+    </Grid>
+</UserControl>
