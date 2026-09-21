@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace WarehouseManager.Presentation.Wpf.ViewModels
 {
-    public sealed class DashboardViewModel : ViewModelBase
+    public sealed class WarehousesViewModel : ViewModelBase
     {
-       override public string Title => "Dashboard";
+        public override string Title => "Warehouses Management";
     }
 }

@@ -4,9 +4,105 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WarehouseManager.Presentation.Wpf"
+        xmlns:views="clr-namespace:WarehouseManager.Presentation.Wpf.Views"
+        xmlns:vm="clr-namespace:WarehouseManager.Presentation.Wpf.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Warehouse Management System"
+        Width="1280"
+        Height="760"
+        MinWidth="1000"
+        MinHeight="600"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type vm:DashboardViewModel}">
+            <views:DashboardView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:InventoryViewModel}">
+            <views:InventoryView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:MaterialsViewModel}">
+            <views:MaterialsView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:WarehousesViewModel}">
+            <views:WarehousesView />
+        </DataTemplate>
+    </Window.Resources>
+    <Grid Background="{StaticResource PageBackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="64" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="230" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
+        <views:HeaderView Grid.Row="0"
+                          Grid.ColumnSpan="2" />
+
+        <!-- Sidebar -->
+
+        <Border Grid.Row="1"
+                Grid.Column="0"
+                Background="{StaticResource SidebarBrush}">
+
+            <StackPanel Margin="4,14">
+
+
+                <Button Content="Dashboard"
+                        Style="{StaticResource NavigationButtonStyle}"
+                        Command="{Binding ShowDashboardCommand}" />
+
+
+                <Button Content="Materials"
+                        Style="{StaticResource NavigationButtonStyle}"
+                        Command="{Binding ShowMaterialsCommand}" />
+
+
+                <Button Content="Warehouses"
+                        Style="{StaticResource NavigationButtonStyle}"
+                        Command="{Binding ShowWarehousesCommand}" />
+
+
+                <Button Content="Goods Receipt"
+                        Style="{StaticResource NavigationButtonStyle}"
+                        IsEnabled="False" />
+
+
+                <Button Content="Goods Issue"
+                        Style="{StaticResource NavigationButtonStyle}"
+                        IsEnabled="False" />
+
+
+                <Button Content="Transfer"
+                        Style="{StaticResource NavigationButtonStyle}"
+                        IsEnabled="False" />
+
+
+                <Button Content="Inventory"
+                        Style="{StaticResource NavigationButtonStyle}"
+                        Command="{Binding ShowInventoryCommand}" />
+
+
+                <Button Content="History"
+                        Style="{StaticResource NavigationButtonStyle}"
+                        IsEnabled="False" />
+
+
+            </StackPanel>
+
+        </Border>
+
+        <!-- Content -->
+
+        <Border Grid.Row="1"
+                Grid.Column="1"
+                Margin="16"
+                Background="White"
+                CornerRadius="6">
+
+            <ContentControl Content="{Binding CurrentViewModel}" />
+
+        </Border>
     </Grid>
 </Window>

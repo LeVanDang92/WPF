@@ -8,6 +8,6 @@ namespace WarehouseManager.Presentation.Wpf.ViewModels
 {
     public sealed class MaterialsViewModel : ViewModelBase
     {
-        public string Title => "Materials Management";
+        public override string Title => "Materials Management";
     }
 }

@@ -9,4 +9,5 @@ namespace WarehouseManager.Presentation.Wpf.ViewModels;
 
 public abstract class ViewModelBase : ObservableObject
 {
+    public abstract string Title { get;}
 }

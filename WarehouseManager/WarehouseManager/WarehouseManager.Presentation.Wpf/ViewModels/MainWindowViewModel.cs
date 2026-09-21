@@ -8,16 +8,20 @@ public partial class MainWindowViewModel : ViewModelBase
     private readonly DashboardViewModel _dashboardViewModel;
     private readonly InventoryViewModel _inventoryViewModel;
     private readonly MaterialsViewModel _materialsViewModel;
+    private readonly WarehousesViewModel _warehousesViewModel;
 
     [ObservableProperty]
     private ViewModelBase _currentViewModel;
 
-    public MainWindowViewModel(DashboardViewModel dashboardViewModel, InventoryViewModel inventoryViewModel, MaterialsViewModel materialsViewModel)
+    public MainWindowViewModel(DashboardViewModel dashboardViewModel,
+        InventoryViewModel inventoryViewModel, 
+        MaterialsViewModel materialsViewModel, WarehousesViewModel warehousesViewModel)
     {
         _dashboardViewModel = dashboardViewModel;
         _inventoryViewModel = inventoryViewModel;
         _materialsViewModel = materialsViewModel;
-        _currentViewModel = _dashboardViewModel;
+        CurrentViewModel = _dashboardViewModel;
+        _warehousesViewModel = warehousesViewModel;
     }
 
     [RelayCommand]
@@ -37,4 +41,14 @@ public partial class MainWindowViewModel : ViewModelBase
     {
         CurrentViewModel = _materialsViewModel;
     }
+
+    [RelayCommand]
+    private void ShowWarehouses()
+    {
+        CurrentViewModel = _warehousesViewModel;
+    }
+
+    public string CurrentUserName => "John Doe"; // Replace with actual user name retrieval logic
+
+    override public string Title => "Warehouse Manager System";
 }

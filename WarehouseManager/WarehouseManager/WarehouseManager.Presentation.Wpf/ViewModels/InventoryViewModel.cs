@@ -8,6 +8,6 @@ namespace WarehouseManager.Presentation.Wpf.ViewModels
 {
     public sealed class InventoryViewModel : ViewModelBase
     {
-        public string Title => "Inventory Management";
+        public override string Title => "Inventory Management";
     }
 }
