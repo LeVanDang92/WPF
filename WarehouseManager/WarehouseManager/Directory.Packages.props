@@ -22,6 +22,24 @@
             Include="Microsoft.Extensions.Hosting"
             Version="10.0.12" />
 
+		<!-- Database -->
+		<PackageVersion 
+			Include="Dapper" 
+			Version="2.1.86" />
+
+		<PackageVersion
+            Include="Microsoft.Data.SqlClient"
+            Version="7.1.0" />
+		
+		<!--DI/Configuration-->
+
+		<PackageVersion
+            Include="Microsoft.Extensions.DependencyInjection.Abstractions"
+            Version="10.0.12" />
+		
+		<PackageVersion
+			Include="Microsoft.Extensions.Configuration.Abstractions"
+			Version="10.0.12" />
     </ItemGroup>
 
 </Project>
