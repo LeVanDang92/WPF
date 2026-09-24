@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WarehouseManager.Presentation.Wpf.ViewModels;
 
-public abstract class ViewModelBase : ObservableObject
+public abstract class ViewModelBase : ObservableValidator
 {
     public abstract string Title { get;}
 }

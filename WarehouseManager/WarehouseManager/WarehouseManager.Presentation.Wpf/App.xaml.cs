@@ -1,8 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.Configuration;
-using System.Data;
 using System.Windows;
+using WarehouseManager.Infrastructure;
 using WarehouseManager.Presentation.Wpf.ViewModels;
 namespace WarehouseManager.Presentation.Wpf;
 
@@ -17,12 +17,12 @@ public partial class App : System.Windows.Application
     {
         var builder = Host.CreateApplicationBuilder();
 
-        ConfigureServices(builder.Services);
-
+        ConfigureServices(builder.Services, builder.Configuration);
+     
         _host = builder.Build();
     }
 
-    private static void ConfigureServices(IServiceCollection services)
+    private static void ConfigureServices(IServiceCollection services,IConfiguration configuration)
     {
         // Register your services and view models here
         services.AddSingleton<MainWindowViewModel>();
@@ -30,9 +30,10 @@ public partial class App : System.Windows.Application
         services.AddSingleton<InventoryViewModel>();
         services.AddSingleton<MaterialsViewModel>();
         services.AddSingleton<WarehousesViewModel>();
+        services.AddInfrastructure(configuration);
 
         // Register the main window
-        services.AddSingleton<MainWindow>();
+        services.AddSingleton<MainWindow>();     
     }
 
     override protected void OnStartup(StartupEventArgs e)
