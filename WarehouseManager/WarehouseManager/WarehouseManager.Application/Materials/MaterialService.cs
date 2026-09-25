@@ -26,7 +26,6 @@ public sealed class MaterialService
             .ToList();
     }
 
-
     public async Task<long> CreateAsync(
         CreateMaterialRequest request,
         CancellationToken cancellationToken = default)

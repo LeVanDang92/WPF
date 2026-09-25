@@ -1,4 +1,6 @@
 ﻿
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace WarehouseManager.Domain.Entities
 {
     public sealed class Material

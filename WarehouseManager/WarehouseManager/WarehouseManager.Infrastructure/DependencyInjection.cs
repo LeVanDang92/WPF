@@ -17,22 +17,16 @@ public static class DependencyInjection
                     "WarehouseDb");
 
 
-        if (string.IsNullOrWhiteSpace(
-            connectionString))
+        if (string.IsNullOrWhiteSpace(connectionString))
         {
             throw new InvalidOperationException(
                 "Connection string 'WarehouseDb' was not found.");
         }
 
-
-        services.AddSingleton(
-            new SqlConnectionFactory(
-                connectionString));
+        services.AddSingleton(new SqlConnectionFactory(connectionString));
 
 
-        services.AddSingleton<
-            IMaterialRepository,
-            MaterialRepository>();
+        services.AddSingleton<IMaterialRepository,MaterialRepository>();
 
 
         return services;

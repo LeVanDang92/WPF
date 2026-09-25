@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Windows;
+using WarehouseManager.Application.Materials;
 using WarehouseManager.Infrastructure;
 using WarehouseManager.Presentation.Wpf.ViewModels;
 namespace WarehouseManager.Presentation.Wpf;
@@ -24,16 +25,19 @@ public partial class App : System.Windows.Application
 
     private static void ConfigureServices(IServiceCollection services,IConfiguration configuration)
     {
+        services.AddInfrastructure(configuration);
+
+        services.AddSingleton<MaterialService>();
+
+        // Register the main window
+        services.AddSingleton<MainWindow>();
+
         // Register your services and view models here
         services.AddSingleton<MainWindowViewModel>();
         services.AddSingleton<DashboardViewModel>();
         services.AddSingleton<InventoryViewModel>();
         services.AddSingleton<MaterialsViewModel>();
         services.AddSingleton<WarehousesViewModel>();
-        services.AddInfrastructure(configuration);
-
-        // Register the main window
-        services.AddSingleton<MainWindow>();     
     }
 
     override protected void OnStartup(StartupEventArgs e)
