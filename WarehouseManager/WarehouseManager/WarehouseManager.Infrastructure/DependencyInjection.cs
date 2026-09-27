@@ -1,7 +1,9 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WarehouseManager.Application.Abstractions.Persistence;
 using WarehouseManager.Infrastructure.Persistence;
+using WarehouseManager.Infrastructure.Persistence.Ef;
 using WarehouseManager.Infrastructure.Persistence.Repositories;
 
 namespace WarehouseManager.Infrastructure;
@@ -23,10 +25,18 @@ public static class DependencyInjection
                 "Connection string 'WarehouseDb' was not found.");
         }
 
+        // EF   Core DbContext registration
+        services.AddDbContext<WarehouseDbContext>(
+              options =>
+              {
+                  options.UseSqlServer(
+                      connectionString);
+              });
+
+        // Dapper
         services.AddSingleton(new SqlConnectionFactory(connectionString));
 
-
-        services.AddSingleton<IMaterialRepository,MaterialRepository>();
+        services.AddScoped<IMaterialRepository, MaterialRepository>();
 
 
         return services;

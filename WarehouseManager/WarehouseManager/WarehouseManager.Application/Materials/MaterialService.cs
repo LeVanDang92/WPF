@@ -57,12 +57,11 @@ public sealed class MaterialService
                 request.Unit);
 
 
-        return await _materialRepository
-            .InsertAsync(
-                material,
-                cancellationToken);
-    }
+        return await _materialRepository.InsertAsync(
+            material,
+            cancellationToken);
 
+    }
 
     public async Task UpdateAsync(
         UpdateMaterialRequest request,

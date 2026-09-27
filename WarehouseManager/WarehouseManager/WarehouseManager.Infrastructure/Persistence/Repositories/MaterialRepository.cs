@@ -1,5 +1,4 @@
-﻿using Dapper;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using WarehouseManager.Application.Abstractions.Persistence;
 using WarehouseManager.Domain.Entities;
 using WarehouseManager.Infrastructure.Persistence.Ef;
@@ -27,7 +26,6 @@ internal sealed class MaterialRepository : IMaterialRepository
             .ToListAsync(cancellationToken);
     }
 
-
     public async Task<Material?> GetByIdAsync(
         long id,
         CancellationToken cancellationToken = default)
@@ -37,7 +35,6 @@ internal sealed class MaterialRepository : IMaterialRepository
                 x => x.Id == id,
                 cancellationToken);
     }
-
 
     public async Task<bool> ExistsByCodeAsync(
         string code,
@@ -49,7 +46,6 @@ internal sealed class MaterialRepository : IMaterialRepository
                 cancellationToken);
     }
 
-
     public async Task AddAsync(
         Material material,
         CancellationToken cancellationToken = default)
@@ -60,12 +56,30 @@ internal sealed class MaterialRepository : IMaterialRepository
                 cancellationToken);
     }
 
-
     public Task SaveChangesAsync(
         CancellationToken cancellationToken = default)
     {
         return _dbContext
             .SaveChangesAsync(
                 cancellationToken);
+    }
+
+    public async Task<long> InsertAsync(Material? material, CancellationToken cancellationToken = default)
+    {
+        await _dbContext.Materials.AddAsync(material!, cancellationToken);
+        await _dbContext.SaveChangesAsync(cancellationToken);
+        return material!.Id;
+    }
+
+    public async Task UpdateAsync(Material material, CancellationToken cancellationToken = default)
+    {
+       _dbContext.Materials.Update(material);
+       await _dbContext.SaveChangesAsync(cancellationToken);
+    }
+
+    public async Task SetActiveAsync(long id, bool active, CancellationToken cancellationToken = default)
+    {
+       _dbContext.Materials.Where(m => m.Id == id).ToList().ForEach(m => m.SetActive(active));
+       await _dbContext.SaveChangesAsync(cancellationToken);
     }
 }

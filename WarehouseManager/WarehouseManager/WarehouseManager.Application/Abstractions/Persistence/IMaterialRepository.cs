@@ -19,6 +19,16 @@ public interface IMaterialRepository
         Material material,
         CancellationToken cancellationToken = default);
 
+    Task<long> InsertAsync(
+        Material? material,
+        CancellationToken cancellationToken = default);
+
+    Task UpdateAsync(
+        Material material,
+        CancellationToken cancellationToken = default);
+
+    Task SetActiveAsync(long id, bool active, CancellationToken cancellationToken = default);
+
     Task SaveChangesAsync(
         CancellationToken cancellationToken = default);
 }
