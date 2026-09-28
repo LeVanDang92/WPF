@@ -16,7 +16,10 @@ public partial class App : System.Windows.Application
 
     public App()
     {
-        var builder = Host.CreateApplicationBuilder();
+        var builder = Host.CreateApplicationBuilder(new HostApplicationBuilderSettings
+        {
+            ContentRootPath = AppContext.BaseDirectory
+        });
 
         ConfigureServices(builder.Services, builder.Configuration);
      
